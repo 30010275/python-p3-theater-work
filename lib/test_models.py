@@ -1,8 +1,16 @@
 import unittest
-# from sqlalchemy import create_engine
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from .models import Base, Role, Audition
 
+class TestTheaterModels(unittest.TestCase):
+
+    def setUp(self):
+        # Setup code for creating a session
+        self.engine = create_engine('sqlite:///:memory:')
+        Base.metadata.create_all(self.engine)
+        self.Session = sessionmaker(bind=self.engine)
+        self.session = self.Session()
 
     def test_create_role(self):
         role = Role(character_name='Hamlet')
@@ -15,11 +23,11 @@ from .models import Base, Role, Audition
         self.session.add(role)
         self.session.commit()
 
-        audition = Audition(actor='John Doe', location='Theater A', phone=1234567890, hired=False, role_id=role.id)
+        audition = Audition(actor='Diego Iso', location='Theater A', phone=1234567890, hired=False, role_id=role.id)
         self.session.add(audition)
         self.session.commit()
 
-        self.assertEqual(audition.actor, 'John Doe')
+        self.assertEqual(audition.actor, 'Diego Iso')
         self.assertEqual(audition.role_id, role.id)
 
     def test_audition_callback(self):
@@ -27,7 +35,7 @@ from .models import Base, Role, Audition
         self.session.add(role)
         self.session.commit()
 
-        audition = Audition(actor='Jane Doe', location='Theater B', phone=9876543210, hired=False, role_id=role.id)
+        audition = Audition(actor='Leah Kong', location='Theater B', phone=9876543210, hired=False, role_id=role.id)
         self.session.add(audition)
         self.session.commit()
 

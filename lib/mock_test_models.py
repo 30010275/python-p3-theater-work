@@ -10,12 +10,12 @@ class TestTheaterModels(unittest.TestCase):
 
     def test_create_audition(self):
         role = Role(character_name='Macbeth')
-        audition = Audition(actor='John Doe', location='Theater A', phone=1234567890, hired=False, role_id=1)
-        self.assertEqual(audition.actor, 'John Doe')
+        audition = Audition(actor='Leah Kong', location='Theater A', phone=1234567890, hired=False, role_id=1)
+        self.assertEqual(audition.actor, 'Leah Kong')
         self.assertEqual(audition.role_id, 1)
 
     def test_audition_callback(self):
-        audition = Audition(actor='Jane Doe', location='Theater B', phone=9876543210, hired=False, role_id=1)
+        audition = Audition(actor='Leah Kong', location='Theater B', phone=9876543210, hired=False, role_id=1)
         audition.call_back()
         self.assertTrue(audition.hired)
 
