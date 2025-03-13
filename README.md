@@ -1,5 +1,5 @@
 # Phase 3 Mock Code Challenge: Theater Work
-
+START THE CLI BY    PYTHONPATH=. python cli/main.py
 ## Learning Goals
 
 - Write SQLAlchemy migrations.
@@ -10,7 +10,10 @@
 
 ## Key Vocab
 
-- **Schema**: the blueprint of a database. Describes how data relates to other
+-
+
+
+ **Schema**: the blueprint of a database. Describes how data relates to other
   data in tables, columns, and relationships between them.
 - **Persist**: save a schema in a database.
 - **Engine**: a Python object that translates SQL to Python and vice-versa.
